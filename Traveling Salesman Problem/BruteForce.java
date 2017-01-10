@@ -111,15 +111,17 @@ private void setRoute(int[] p) {
 	
 }
 
-private int findPosition(Route r, City start) {
- Boolean x = true;
+public int findPosition(Route r, City start) {
+ boolean x = true;
  int position = 0;
  
  while(x && position < r.getRoute().length){
-	 if(start.getX() == r.getRoute()[position].getX() && start.getY() == r.getRoute()[position].getX()){
+	 if(start.getX() == r.getRoute()[position].getX() && start.getY() == r.getRoute()[position].getY()){
 		 x = false;
 	 }
-	 else position++;
+	 else {
+		 position++;
+	 }
  }
  return position;
 }
