@@ -1,23 +1,23 @@
 import java.util.Random;
 
 public class City {
-private double XPOS, YPOS;
+private int XPOS, YPOS;
 public boolean visited = false;
 public City(){
 	Random rand = new Random();
-	this.XPOS = rand.nextInt(500);
-	this.YPOS = rand.nextInt(500);
+	this.XPOS = rand.nextInt(9);
+	this.YPOS = rand.nextInt(9);
 }
-public double getX(){
+public int getX(){
 	return this.XPOS;
 }
-public void setX(double n){
+public void setX(int n){
 	this.XPOS = n;
 }
-public double getY(){
+public int getY(){
 	return this.YPOS;
 }
-public void setY(double n){
+public void setY(int n){
 	this.YPOS = n;
 }
 public boolean isVisited(){

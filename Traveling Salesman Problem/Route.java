@@ -1,6 +1,6 @@
 
 public class Route {
-public int amount = 12;
+public int amount = 4;
 private City route[] = new City[amount];
 
 public Route(){

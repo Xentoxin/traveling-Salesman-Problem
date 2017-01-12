@@ -3,20 +3,20 @@ import java.util.Random;
 public class BruteForce {
 private City start;
 private int[] path;
-private double distance;
+private int distance;
 
 public BruteForce(Route r){
 	Random rand = new Random();
 	int randomCity = rand.nextInt((r.amount) -1);
-	System.out.println("Random City = " + randomCity);
+	System.out.println("Start City = " + randomCity);
 	start = r.getRoute()[randomCity];
 	System.out.println("StartCity Position: " + start.getX() + "," + start.getY());
 }
 
 public void bruteForce(Route r){
 	int nodes = r.amount; //number of cities in a route
-	double tempDist; //records the distance of a route
-	double Shortest = 0; 
+	int tempDist; //records the distance of a route
+	int Shortest = 0; 
 	City cities[] = r.getRoute();
 	City tempPath[] = new City[nodes];
 	City ShortestRoute[] = new City[nodes];
@@ -44,6 +44,7 @@ public void bruteForce(Route r){
 	//add the distance from the last city back to the first city
 	tempDist += Distance(cities[clone[nodes-1]] , cities[0]);
 	System.out.println("Temporary Dist: " + tempDist);
+	System.out.println("Temporary Route: " + tempPath);
 	if(Shortest > tempDist || Shortest == 0){
 		Shortest = tempDist;
 		for(int i = 0 ; i < nodes ; i++){
@@ -54,8 +55,8 @@ public void bruteForce(Route r){
 	}
 while((clone = Permutations.nextP(clone)) != null);
 
-//build a path witht the positions with the cities
-	int[] finalpath = new int[nodes +1];
+//build a path with the positions with the cities
+	int[] finalpath = new int[nodes + 1];
 	for(int i = 0 ; i <nodes ; i++){
 		finalpath[i] = findPosition(r , ShortestRoute[i]);
 		if(finalpath[i] == 0){
@@ -75,7 +76,7 @@ while((clone = Permutations.nextP(clone)) != null);
 		System.out.print(" cheapest path : ");
 		for (int j = 0; j <nodes; j++) {
 			
-			System.out.print("-"+ShortestRoute[j].getX());
+			System.out.print("->"+ShortestRoute[j].getX() + "," + ShortestRoute[j].getY());
 			
 			
 		}
@@ -87,7 +88,7 @@ while((clone = Permutations.nextP(clone)) != null);
 	
 }
 public void DisplayPath(){
-	for(int i = 0 ; i <getPath().length - 1 ; i++){
+	for(int i = 0 ; i <getPath().length ; i++){
 		System.out.println(getPath()[i]);
 	}
 }
@@ -97,11 +98,11 @@ public int[] getPath(){
 public void DisplayDistance(){
 	System.out.println("Total Distance = " + getDistance());
 }
-private double getDistance() {
+private int getDistance() {
 	return distance;
 }
 
-private void setDistance(double d) {
+private void setDistance(int d) {
 	this.distance =d;
 	
 }
@@ -127,8 +128,8 @@ public int findPosition(Route r, City start) {
 }
 
 public double Distance(City c1, City c2){
-	double deltaX = c1.getX() - c2.getX();
-	double deltaY = c1.getY() - c2.getY();
+	int deltaX = c1.getX() - c2.getX();
+	int deltaY = c1.getY() - c2.getY();
 	double distance  = Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
 	return distance;
 }
