@@ -22,3 +22,9 @@ Instructions for Traveling Salesman Project 2:
 2- Input Cities and their locations by hand OR let the locations be randomized
 3- Javac Tester.java
 4- Run Tester
+
+
+
+Notes:
+The lack of commiting,pushing, branching and merging on the github is due to the fact that both Alvin and Hao Yu only do work on one respective device. Alvin and Hao Yu kept 
+saving files on their device instead of commiting. Furthermore, work was done whilst screensharing on Skype.
